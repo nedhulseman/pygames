@@ -29,9 +29,9 @@ ROBOT=(70,130,180)
 windowSurface.fill(OBSIDIAN) #fill the background for space
 
 #draw stars
-for i in range(300):
+for i in range(400):
     x=randint(0, 1200)
-    y=randint(0, 400)
+    y=randint(0, 700)
     size=randint(0, 4)
     pygame.draw.circle(windowSurface, WHITE, (x, y), size, 0)
 
