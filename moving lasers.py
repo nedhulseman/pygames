@@ -89,7 +89,6 @@ while True:
     drawRobot(windowSurface)
     drawAlien(windowSurface, LEFT=530)
     
-    shield=False   
     for laser in lasers:
         if iterator==laser['delay']:
             laser['shot']=True
