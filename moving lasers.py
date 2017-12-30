@@ -27,14 +27,6 @@ CRATER_GREY=(125, 125, 125)
 ROBOT=(70,130,180)
 
 
-
-
-#draw stars
-#for i in range(300):
-#   x=randint(0, 1200)
-#  y=randint(0, 400)
-#    size=randint(0, 4)
-#    pygame.draw.circle(windowSurface, WHITE, (x, y), size, 0)
 def drawRobot(windowSurface):
     pygame.draw.rect(windowSurface, ROBOT, (70, 325, 40, 40)) #head
     pygame.draw.rect(windowSurface, RED, (90, 335, 20, 10)) #eye
@@ -77,13 +69,13 @@ def drawAlien(windowSurface, LEFT=500):
 
    
 laser1= {'rect':pygame.Rect(285, 356, 8, 10), 'color':RED, 'dir':RIGHT, 
-         'deflected':False, 'delay':0, 'shot':False}
+         'delay':0, 'shot':False}
 laser2 = {'rect':pygame.Rect(285, 356, 8, 10), 'color':RED, 'dir':RIGHT, 
-          'deflected':False, 'delay':7, 'shot':False}
+          'delay':7, 'shot':False}
 laser3 = {'rect':pygame.Rect(285, 356, 8, 10), 'color':RED, 'dir':RIGHT, 
-          'deflected':False, 'delay':15, 'shot':False}
+          'delay':15, 'shot':False}
 laser4 = {'rect':pygame.Rect(285, 356, 8, 10), 'color':RED, 'dir':RIGHT, 
-          'deflected':False, 'delay':23, 'shot':False}
+          'delay':23, 'shot':False}
    
 lasers=[laser1, laser2, laser3, laser4]
 iterator=0
@@ -102,22 +94,12 @@ while True:
         if iterator==laser['delay']:
             laser['shot']=True
         if laser['shot']==True:    
-            if laser['rect'].left > 465:
-                laser['deflected']=True
-                print(iterator)
-        
-            if laser['deflected']==True:
-                laser['rect'].left -= STEPSIZE
-            else:
-                laser['rect'].left += STEPSIZE
-                laser['rect'].top -= 1
-                laser['rect'].height += 2
+            laser['rect'].left += STEPSIZE
+            laser['rect'].top -= 1
+            laser['rect'].height += 2
 
     
     
-    if iterator > 19:    
-        pygame.draw.arc(windowSurface, WHITE, (475, 200, 50, 300), pi/2, 4*pi/3, 2) 
-
     pygame.draw.rect(windowSurface, laser1['color'], laser1['rect'])
     pygame.draw.rect(windowSurface, laser2['color'], laser2['rect'])
     pygame.draw.rect(windowSurface, laser3['color'], laser3['rect'])
@@ -127,7 +109,6 @@ while True:
     pygame.display.update()
     time.sleep(.02)
     
-
 
 
 
